@@ -1,4 +1,6 @@
-# README
+# Now Showing
+
+![Poster](https://s3.amazonaws.com/f.cl.ly/items/0x142i233J361c442o2p/Now%20Showing512.png?v=70bb4dec)
 
 ### What I want this app to do:
 
