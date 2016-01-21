@@ -9,9 +9,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+
 gem 'puma'
+gem 'figaro'
 gem 'ruby-tmdb'
 gem 'ruby-trello'
+gem 'omniauth'
+gem 'omniauth-trello'
 
 group :development, :test do
   gem 'byebug'
@@ -20,4 +24,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
