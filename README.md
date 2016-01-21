@@ -25,4 +25,9 @@
 
 ### What this app currently does:
 
-  1.
+  1. Logs into Trello
+
+
+### Setup
+
+  You'll want to run `bundle exec figaro install` and add these keys to `config/application.yml`: `tmdb_key`, `trello_key`, `trello_secret`
