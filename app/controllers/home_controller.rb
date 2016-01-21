@@ -6,7 +6,13 @@ class HomeController < ApplicationController
   end
 
   def search
-    @search = params[:search]
+    Tmdb::Api.key(ENV['TMDB_KEY'])
+    search = params[:search]
     @type = params[:media_type]
+    if @type == "movie"
+      @results = Tmdb::Movie.find(search)
+    elsif @type == "tv"
+      @results = Tmdb::TV.find(search)
+    end
   end
 end

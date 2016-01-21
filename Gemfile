@@ -14,7 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap_form'
 gem 'puma'
 gem 'figaro'
-gem 'tmdb'
+gem 'themoviedb'
 gem 'ruby-trello'
 
 group :development, :test do

@@ -71,7 +71,6 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    hashie (2.1.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     httparty (0.13.7)
@@ -159,12 +158,11 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    themoviedb (0.1.0)
+      httparty
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
-    tmdb (0.7.0)
-      hashie (~> 2.1, >= 2.1.1)
-      httparty (~> 0.13, >= 0.13.1)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -201,7 +199,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
-  tmdb
+  themoviedb
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
