@@ -14,8 +14,6 @@ gem 'puma'
 gem 'figaro'
 gem 'ruby-tmdb'
 gem 'ruby-trello'
-gem 'omniauth'
-gem 'omniauth-trello'
 
 group :development, :test do
   gem 'byebug'
