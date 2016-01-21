@@ -1,2 +1,49 @@
+/*
+ *= require rails_bootstrap_forms
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+// @import "rails-bootstrap-forms";
+@import url("https://fonts.googleapis.com/css?family=Signika:700|Raleway");
+
+$darkblue: #1A2634;
+$navy: #203E5F;
+$gold: #FFCC00;
+$sand: #FEE5B1;
+
+body {
+  font-family: Raleway;
+  color: $sand;
+  background-color: $darkblue;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: Signika;
+  font-weight: 700;
+  color: $gold;
+}
+
+.h1 {
+  font-size: 3.5em;
+}
+
+#title {
+  text-shadow: $sand 1px 0 7px;
+}
+
+input, button {
+  background: $navy !important;
+  color: $gold !important;
+  border: $darkblue !important;
+  width: 100% !important;
+}
+
+#search-field {
+  height: 50px !important;
+  font-size: 2em !important;
+}
+
+button {
+  height: 50px !important;
+  font-size: 1.5em !important;
+}

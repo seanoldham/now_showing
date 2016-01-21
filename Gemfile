@@ -11,9 +11,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'bootstrap_form'
 gem 'puma'
 gem 'figaro'
-gem 'ruby-tmdb'
+gem 'tmdb'
 gem 'ruby-trello'
 
 group :development, :test do

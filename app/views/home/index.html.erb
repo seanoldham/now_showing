@@ -1,3 +1,19 @@
-<% for card in @movie_cards do %>
-  <%= card.list_id %> <%= card.name %><br>
-<% end %>
+<div class="col-md-6 col-md-offset-3">
+  <div class="row">
+    <p id="title" class="h1 text-center">NOW SHOWING</p>
+  </div>
+  <br><br>
+    <div class="">
+    <%= bootstrap_form_tag(url: '/search') do |f| %>
+      <%= f.search_field :search, hide_label: true, id: "search-field" %>
+      <div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
+        <%= f.form_group :media_type do %>
+          <%= f.radio_button :media_type, 0, label: "Movie" %>
+          <%= f.radio_button :media_type, 1, label: "TV" %>
+        <% end %>
+        <%= f.submit "Search" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
