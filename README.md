@@ -12,16 +12,12 @@
 
   4. Give user a choice:
     * Watch Later
+      * Add choice to Trello board (either Movies or TV Shows list, based on what they chose).
 
     * Watch Now
-
-  If *Watch Later*:
-    * Add choice to Trello board (either Movies or TV Shows list, based on what they chose).
-
-  If *Watch Now*:
-    * Add to Watching list on Trello. For movies, set it to automatically move to Watched list in 3 hours. TV shows will be moved manually.
-    * Grab info (title, poster art, Rotten Tomatoes score, release date).
-    * Send info to Raspberry Pi-powered monitor that will display artwork and relevant data in a Now Showing frame.
+        * Add to Watching list on Trello. For movies, set it to automatically move to Watched list in 3 hours. TV shows will be moved manually.
+      * Grab info (title, poster art, Rotten Tomatoes score, release date).
+      * Send info to Raspberry Pi-powered monitor that will display artwork and relevant data in a Now Showing frame.
 
 ### What this app currently does:
 
