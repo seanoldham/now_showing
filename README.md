@@ -21,7 +21,9 @@
 
 ### What this app currently does:
 
-  1. Logs into Trello
+  1. Searches TMDb
+  
+  2. Finds correct Trello boards
 
 ### Setup
 
