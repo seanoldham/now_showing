@@ -1,5 +1,3 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
 @import "bulma";
 @import url("https://fonts.googleapis.com/css?family=Signika:700|Raleway");
 
@@ -32,19 +30,7 @@ a:hover {
   text-shadow: $sand 1px 0 7px;
 }
 
-input, button {
-  background: $navy !important;
-  color: $gold !important;
-  border: $darkblue !important;
-  width: 100% !important;
-}
-
 #search-field {
   height: 50px !important;
   font-size: 2em !important;
-}
-
-button {
-  height: 50px !important;
-  font-size: 1.5em !important;
 }

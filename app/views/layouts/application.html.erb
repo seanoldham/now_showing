@@ -10,11 +10,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div class="container">
-  <a href="/"><p id="title" class="h1 text-center">NOW SHOWING</p></a>
-  <%= yield %>
-</div>
-
+  <section class="hero">
+    <div class="hero-content">
+      <div class="container">
+        <a href="/"><h1 id="title" class="title h1 is-centered">NOW SHOWING</h1></a>
+      </div>
+    </div>
+    <%= yield %>
+  </section>
 </body>
 </html>
