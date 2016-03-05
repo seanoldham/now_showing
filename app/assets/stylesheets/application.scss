@@ -1,11 +1,8 @@
 @import "bourbon";
+@import "neat";
+@import "base/base";
 @import "home";
 @import url("https://fonts.googleapis.com/css?family=Signika:700|Raleway");
-
-$darkblue: #1A2634;
-$navy: #203E5F;
-$gold: #FFCC00;
-$sand: #FEE5B1;
 
 body {
   font-family: Raleway;
