@@ -1,18 +1,22 @@
 <%= form_tag('/search') do %>
-  <p class="control">
-    <%= search_field_tag 'search', nil, class: 'input', placeholder: "Search" %>
-  </p>
-  <p class="control">
-    <label class="radio">
-      <%= radio_button_tag 'media_type', 'movie' %>
-      Movie
-    </label>
-    <label class="radio">
-      <%= radio_button_tag 'media_type', 'tv' %>
-      TV
-    </label>
-  </p>
-  <p class="control">
-    <%= submit_tag "Search", class: "button" %>
-  </p>
+  <section>
+    <%= search_field_tag 'search', nil, placeholder: "Search" %>
+  </section>
+  <section>
+    <section>
+      <label>
+        <%= radio_button_tag 'media_type', 'movie' %>
+        Movie
+      </label>
+    </section>
+    <section>
+      <label>
+        <%= radio_button_tag 'media_type', 'tv' %>
+        TV
+      </label>
+    </section>
+  </section>
+  <section>
+    <%= submit_tag "Search" %>
+  </section>
 <% end %>
