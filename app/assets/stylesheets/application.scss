@@ -1,4 +1,5 @@
-@import "bulma";
+@import "bourbon";
+@import "home";
 @import url("https://fonts.googleapis.com/css?family=Signika:700|Raleway");
 
 $darkblue: #1A2634;
@@ -22,15 +23,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-size: 3.5em;
 }
 
-a:hover {
+a, a:hover {
   text-decoration: none;
 }
 
 #title {
   text-shadow: $sand 1px 0 7px;
-}
-
-#search-field {
-  height: 50px !important;
-  font-size: 2em !important;
 }
