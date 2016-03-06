@@ -1,17 +1,14 @@
-<div class="col-xs-12 col-md-12">
+<ul>
   <% for result in @results do %>
-    <div class="col-xs-12 col-md-3">
-      <div class="result">
-        <% if result.poster_path %>
-          <%= image_tag("http://image.tmdb.org/t/p/original#{result.poster_path}", class: 'img-responsive result-img') %>
-          <% if @type == "movie" %>
-            <h4 class="text-center"><%= result.title %></h4>
-          <% else %>
-            <h4 class="text-center"><%= result.name %></h4>
-          <% end %>
+    <% if result.poster_path %>
+      <li>
+        <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
+        <% if @type == "movie" %>
+          <h4><%= result.title %></h4>
+        <% else %>
+          <h4><%= result.name %></h4>
         <% end %>
-        <br>
-      </div>
-    </div>
+      </li>
+    <% end %>
   <% end %>
-</div>
+</ul>
