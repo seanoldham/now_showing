@@ -9,23 +9,19 @@ body {
   color: $sand;
   background-color: $darkblue;
 }
-
 header, section, footer {
   @include outer-container;
   @include display(flex);
   @include justify-content(center);
 }
-
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: Signika;
   font-weight: 700;
   color: $gold;
 }
-
 .h1 {
   font-size: 3rem;
 }
-
 #title {
   text-shadow: $sand 1px 0 7px;
 }

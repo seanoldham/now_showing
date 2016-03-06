@@ -6,12 +6,21 @@
     <% for result in @results do %>
       <% if result.poster_path %>
         <li>
-          <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
-          <% if @type == "movie" %>
-            <p><%= result.title %></p>
-          <% else %>
-            <p><%= result.name %></p>
-          <% end %>
+          <div class="img-result">
+            <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
+            <div class="hover">
+              <div class="hover-links">
+                <%= button_to "Currently Watching", root_path, method: :get %>
+                <%= button_to "Watch Later", root_path, method: :get %>
+                <%= button_to "Already Watched", root_path, method: :get %>
+              </div>
+            </div>
+            <% if @type == "movie" %>
+              <p><%= result.title %></p>
+            <% else %>
+              <p><%= result.name %></p>
+            <% end %>
+          </div>
         </li>
       <% end %>
     <% end %>
@@ -20,3 +29,14 @@
 <footer>
   <h4><%= link_to "Search Again", root_url %></h4>
 </footer>
+
+<script>
+$(document).ready(function(){
+  $(".img-result").mouseover(function() {
+    $(this).children(".hover").show();
+  });
+  $(".img-result").mouseout(function() {
+    $(this).children(".hover").hide();
+  });
+});
+</script>

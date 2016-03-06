@@ -1,20 +1,40 @@
 // Index Styles
-
 label {
   @include display(inline-flex);
 }
-
 // Search Styles
 ul {
   @include outer-container;
-
   li {
+    position: relative;
     @include span-columns(4);
     @include omega(3n);
-
+    @include media(max-width 768px) {
+      @include span-columns(12);
+    }
     p {
       @include display(flex);
       @include justify-content(center);
     }
   }
+}
+.hover {
+  @include background-image(linear-gradient($halfdarkblue 60%, transparent 100%));
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  display: none;
+  @include outer-container;
+}
+.hover-links form {
+  margin: 30px;
+  @include display(flex);
+  @include justify-content(center);
+}
+.hover-links form input {
+  width: 100%;
+  height: 4em;
 }
