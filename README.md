@@ -21,9 +21,11 @@
 
 ### What this app currently does:
 
-  1. Searches TMDb
-  
-  2. Finds correct Trello boards
+  * Searches TMDb
+
+  * Returns TMDb results in a pretty bitchin' grid
+
+  * Finds correct Trello boards
 
 ### Setup
 

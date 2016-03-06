@@ -1,22 +1,24 @@
-<%= form_tag('/search') do %>
-  <section>
-    <%= search_field_tag 'search', nil, placeholder: "Search" %>
-  </section>
-  <section>
+<section>
+  <%= form_tag('/search') do %>
     <section>
-      <label>
-        <%= radio_button_tag 'media_type', 'movie' %>
-        Movie
-      </label>
+      <%= search_field_tag 'search', nil, placeholder: "Search" %>
     </section>
     <section>
-      <label>
-        <%= radio_button_tag 'media_type', 'tv' %>
-        TV
-      </label>
+      <section>
+        <label>
+          <%= radio_button_tag 'media_type', 'movie' %>
+          Movie
+        </label>
+      </section>
+      <section>
+        <label>
+          <%= radio_button_tag 'media_type', 'tv' %>
+          TV
+        </label>
+      </section>
     </section>
-  </section>
-  <section>
-    <%= submit_tag "Search" %>
-  </section>
-<% end %>
+    <section>
+      <%= submit_tag "Search" %>
+    </section>
+  <% end %>
+</section>

@@ -13,13 +13,9 @@
   <header>
     <a href="/"><h1 id="title" class="title h1">NOW SHOWING</h1></a>
   </header>
-  <section>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :section, msg %>
-    <% end %>
-  </section>
-  <section>
-    <%= yield %>
-  </section>
+  <% flash.each do |name, msg| %>
+    <section><%= content_tag :section, msg %></section>
+  <% end %>
+  <%= yield %>
 </body>
 </html>

@@ -22,14 +22,14 @@ p {
 }
 
 a {
-  color: $action-color;
+  color: $gold;
   text-decoration: none;
   transition: color $base-duration $base-timing;
 
   &:active,
   &:focus,
   &:hover {
-    color: shade($action-color, 25%);
+    color: shade($gold, 25%);
   }
 }
 

@@ -27,6 +27,7 @@ textarea {
 
 #{$all-text-inputs},
 select[multiple] {
+  @include appearance(none);
   background-color: $base-background-color;
   border: $base-border;
   border-radius: $base-border-radius;

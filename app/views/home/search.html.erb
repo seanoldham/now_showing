@@ -1,14 +1,19 @@
-<ul>
-  <% for result in @results do %>
-    <% if result.poster_path %>
-      <li>
-        <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
-        <% if @type == "movie" %>
-          <h4><%= result.title %></h4>
-        <% else %>
-          <h4><%= result.name %></h4>
-        <% end %>
-      </li>
+<section>
+  <ul>
+    <% for result in @results do %>
+      <% if result.poster_path %>
+        <li>
+          <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
+          <% if @type == "movie" %>
+            <p><%= result.title %></p>
+          <% else %>
+            <p><%= result.name %></p>
+          <% end %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</section>
+<footer>
+  <h4><%= link_to "Search Again", root_url %></h4>
+</footer>
