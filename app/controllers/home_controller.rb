@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   def search
     Tmdb::Api.key(ENV['TMDB_KEY'])
     search = params[:search]
+    @search_term = search
     @type = params[:media_type]
     if search != ""
       if @type == "movie"
