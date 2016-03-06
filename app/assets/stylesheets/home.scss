@@ -11,5 +11,10 @@ ul {
   li {
     @include span-columns(4);
     @include omega(3n);
+
+    p {
+      @include display(flex);
+      @include justify-content(center);
+    }
   }
 }
