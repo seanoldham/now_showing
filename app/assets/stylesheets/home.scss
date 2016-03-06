@@ -1,15 +1,15 @@
 // Index Styles
 
 label {
-  display: inline-flex;
+  @include display(inline-flex);
 }
 
 // Search Styles
 ul {
   @include outer-container;
-}
 
-li {
-  @include span-columns(4);
-  @include omega(3n);
+  li {
+    @include span-columns(4);
+    @include omega(3n);
+  }
 }
