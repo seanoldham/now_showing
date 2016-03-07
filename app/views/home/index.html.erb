@@ -22,3 +22,9 @@
     </section>
   <% end %>
 </section>
+<section>
+  <%= @movie_list.name %><br><br>
+  <% for card in @movie_cards do %>
+    <%= card.name %><br>
+  <% end %>
+</section>
