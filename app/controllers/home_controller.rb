@@ -26,12 +26,20 @@ class HomeController < ApplicationController
   end
 
   def trello
-    if params[:button_id] == "currently_watching"
+    if params[:button_name] == "currently_watching"
       Trello::Card.create(name: params[:result_title], list_id: ENV['WATCHING_LIST_ID'])
+      flash[:alert] = "#{params[:result_title]} added to Currently Watching!"
+      redirect_to root_path
+    elsif params[:button_name] == "to_watch"
+      Trello::Card.create(name: params[:result_title], list_id: ENV['TO_WATCH_LIST_ID'])
+      flash[:alert] = "#{params[:result_title]} added to To Watch!"
+      redirect_to root_path
+    elsif params[:button_name] == "watched"
+      Trello::Card.create(name: params[:result_title], list_id: ENV['WATCHED_LIST_ID'])
+      flash[:alert] = "#{params[:result_title]} added to Watched!"
+      redirect_to root_path
     else
-      Trello::Card.create(name: params[:button_id], list_id: ENV['WATCHING_LIST_ID'])
+      flash[:alert] = "#{params[:result_title]} could not be added, please try again and tell Sean you broke his app."
     end
-    # @add_to_watching =
-    # @add_to_watched =
   end
 end

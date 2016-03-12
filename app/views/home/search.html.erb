@@ -15,10 +15,9 @@
             <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
             <div class="hover">
               <div class="hover-links">
-                <%# button_to "Currently Watching", @add_to_to_watch, remote: true %>
-                <%= button_to "Currently Watching", trello_path, button_id: "currently_watching", result_title: @title, data: { confirm: "Add this to the Currently Watching list on Trello?" } %>
-                <%= button_to "Watch Later", trello_path, method: :get, data: { confirm: "Add this to the Watch Later list on Trello?" } %>
-                <%= button_to "Already Watched", trello_path, method: :get, data: { confirm: "Add this to the Already Watched list on Trello?" } %>
+                <%= button_to "Currently Watching", trello_path, params: { button_name: "currently_watching", result_title: @title }, data: { confirm: "Add this to the Currently Watching list on Trello?" } %>
+                <%= button_to "Watch Later", trello_path, params: { button_name: "to_watch", result_title: @title }, data: { confirm: "Add this to the Watch Later list on Trello?" } %>
+                <%= button_to "Already Watched", trello_path, params: { button_name: "watched", result_title: @title }, data: { confirm: "Add this to the Already Watched list on Trello?" } %>
               </div>
             </div>
             <p><%= @title %></p>
