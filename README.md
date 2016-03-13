@@ -27,6 +27,8 @@
 
   * Finds correct Trello boards
 
+  * User can save title to desired board
+
 ### Setup
 
   You'll want to run `bundle exec figaro install` and add these keys to `config/application.yml`: `tmdb_key`, `trello_key`, `trello_secret`
