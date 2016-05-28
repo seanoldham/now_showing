@@ -15,21 +15,43 @@
             <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
             <div class="hover">
               <div class="hover-links">
-                <%= button_to "Currently Watching", trello_add_path, params: { button_name: "currently_watching", result_title: @title }, data: { confirm: "Add this to the Currently Watching list on Trello?" } %>
-                <%= button_to "Watch Later", trello_add_path, params: { button_name: "to_watch", result_title: @title }, data: { confirm: "Add this to the Watch Later list on Trello?" } %>
-                <%= button_to "Already Watched", trello_add_path, params: { button_name: "watched", result_title: @title }, data: { confirm: "Add this to the Already Watched list on Trello?" } %>
+                <%= button_to "Currently Watching", trello_add_path, params: { button_name: "watching", result_title: @title, result_id: result.id, poster_path: result.poster_path }, data: { confirm: "Add this to the Currently Watching list on Trello?" } %>
+                <%= button_to "Watch Later", trello_add_path, params: { button_name: "to_watch", result_title: @title, result_id: result.id, poster_path: result.poster_path }, data: { confirm: "Add this to the Watch Later list on Trello?" } %>
+                <%= button_to "Already Watched", trello_add_path, params: { button_name: "watched", result_title: @title, result_id: result.id, poster_path: result.poster_path }, data: { confirm: "Add this to the Already Watched list on Trello?" } %>
               </div>
             </div>
-            <p><%= @title %></p>
           </div>
+          <p><%= @title %></p>
         </li>
       <% end %>
     <% end %>
   </ul>
 </section>
-<footer>
-  <h4><%= link_to "Search Again", root_url %></h4>
-</footer>
+<br>
+<section>
+  <%= form_tag('/search') do %>
+    <section>
+      <%= search_field_tag 'search', nil, placeholder: "Search" %>
+    </section>
+    <section>
+      <section>
+        <label>
+          <%= radio_button_tag 'media_type', 'movie' %>
+          Movie
+        </label>
+      </section>
+      <section>
+        <label>
+          <%= radio_button_tag 'media_type', 'tv' %>
+          TV
+        </label>
+      </section>
+    </section>
+    <section>
+      <%= submit_tag "Search" %>
+    </section>
+  <% end %>
+</section>
 
 <script>
 $(document).ready(function(){
