@@ -32,11 +32,11 @@ class HomeController < ApplicationController
       redirect_to root_path
     elsif params[:button_name] == "to_watch"
       Trello::Card.create(name: params[:result_title], list_id: ENV['TO_WATCH_LIST_ID'])
-      flash[:alert] = "#{params[:result_title]} added to To Watch!"
+      flash[:alert] = "#{params[:result_title]} added to Watch Later!"
       redirect_to root_path
     elsif params[:button_name] == "watched"
       Trello::Card.create(name: params[:result_title], list_id: ENV['WATCHED_LIST_ID'])
-      flash[:alert] = "#{params[:result_title]} added to Watched!"
+      flash[:alert] = "#{params[:result_title]} added to Already Watched!"
       redirect_to root_path
     else
       flash[:alert] = "#{params[:result_title]} could not be added, please try again and tell Sean you broke his app."
