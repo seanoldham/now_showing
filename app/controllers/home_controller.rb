@@ -25,7 +25,7 @@ class HomeController < ApplicationController
     end
   end
 
-  def trello
+  def trello_add
     if params[:button_name] == "currently_watching"
       Trello::Card.create(name: params[:result_title], list_id: ENV['WATCHING_LIST_ID'])
       flash[:alert] = "#{params[:result_title]} added to Currently Watching!"
