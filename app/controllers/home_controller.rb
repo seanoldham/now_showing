@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       elsif @type == "tv"
         @results = Tmdb::TV.find(search)
       else
-        flash[:alert] = "You must choose Movie or TV."
+        flash[:alert] = "You must choose a media type."
         redirect_to root_path
       end
     else
