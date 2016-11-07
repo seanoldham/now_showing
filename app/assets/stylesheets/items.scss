@@ -88,13 +88,12 @@
   }
 }
 
-// Index Styles
-label {
-  @include display(inline-flex);
-}
 // Search Styles
 ul {
   @include outer-container;
+  @include display(flex);
+  @include justify-content(center);
+  @include flex-wrap(wrap);
   li {
     position: relative;
     @include span-columns(4);

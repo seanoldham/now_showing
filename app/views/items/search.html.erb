@@ -3,25 +3,52 @@
 </section>
 <section>
   <ul>
-    <% for result in @results do %>
+    <% @results.each do |result| %>
         <% if result.poster_path %>
-            <% if @type == "movie" %>
-                <% @title = result.title %>
+            <% if @type == 'movie' %>
+                <% title = result.title %>
             <% else %>
-                <% @title = result.name %>
+                <% title = result.name %>
             <% end %>
             <li>
               <div class="img-result">
                 <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
                 <div class="hover">
                   <div class="hover-links">
-                    <%= button_to "Currently Watching", trello_add_path, params: { button_name: "watching", result_title: @title, result_id: result.id, poster_path: result.poster_path }, data: { confirm: "Add this to the Currently Watching list on Trello?" } %>
-                    <%= button_to "Watch Later", trello_add_path, params: { button_name: "to_watch", result_title: @title, result_id: result.id, poster_path: result.poster_path }, data: { confirm: "Add this to the Watch Later list on Trello?" } %>
-                    <%= button_to "Already Watched", trello_add_path, params: { button_name: "watched", result_title: @title, result_id: result.id, poster_path: result.poster_path }, data: { confirm: "Add this to the Already Watched list on Trello?" } %>
+                    <%= button_to 'Currently Watching',
+                      trello_add_path,
+                      params: {
+                        button_name: 'watching',
+                        result_title: title,
+                        result_id: result.id,
+                        poster_path: result.poster_path
+                      },
+                      data: { confirm: 'Add this to the Currently Watching list on Trello?' }
+                    %>
+                    <%= button_to 'Watch Later',
+                      trello_add_path,
+                      params: {
+                        button_name: 'to_watch',
+                        result_title: title,
+                        result_id: result.id,
+                        poster_path: result.poster_path
+                      },
+                      data: { confirm: 'Add this to the Watch Later list on Trello?' }
+                    %>
+                    <%= button_to 'Already Watched',
+                      trello_add_path,
+                      params: {
+                        button_name: 'watched',
+                        result_title: title,
+                        result_id: result.id,
+                        poster_path: result.poster_path
+                      },
+                      data: { confirm: 'Add this to the Already Watched list on Trello?' }
+                    %>
                   </div>
                 </div>
               </div>
-              <p><%= @title %></p>
+              <p><%= title %></p>
             </li>
         <% end %>
     <% end %>
@@ -46,7 +73,7 @@
         </div>
       </section>
       <section>
-        <%= submit_tag "Search" %>
+        <%= submit_tag 'Search' %>
       </section>
   <% end %>
 </section>
