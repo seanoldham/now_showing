@@ -1,3 +1,131 @@
-// Place all the styles related to the Items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.media-types {
+  $base-border-color: gainsboro !default;
+  $base-border-radius: 30px;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $base-font-size: 1em !default;
+  $base-background-color: $navy;
+  $action-color: $gold;
+  $large-screen: 53.75em !default;
+  $media-type-background: $base-background-color;
+  $media-type-color: $sand;
+  $media-type-border: none;
+  $media-type-inner-border: none;
+  $media-type-background-checked: $action-color;
+  $media-type-color-checked: $darkblue;
+  $media-type-border-checked: none;
+
+  margin-bottom: 10px;
+
+  input {
+    display: none;
+  }
+
+  label {
+    margin-bottom: 0;
+
+    @include media($large-screen) {
+      float: left;
+    }
+
+    .media-type-item {
+      background: $media-type-background;
+      border-left: $media-type-border;
+      border-radius: 0;
+      border-right: $media-type-border;
+      color: $media-type-color;
+      cursor: pointer;
+      display: inline-block;
+      font-size: $base-font-size;
+      font-weight: normal;
+      line-height: 1;
+      padding: 0.75em 1em;
+      width: 100%;
+
+      @include media($large-screen) {
+        border-bottom: $media-type-border;
+        border-left: 0;
+        border-right: $media-type-inner-border;
+        border-top: $media-type-border;
+        width: auto;
+      }
+
+      &:focus,
+      &:hover {
+        background-color: darken($media-type-background, 3%);
+      }
+    }
+
+    &:first-child .media-type-item {
+      @include border-top-radius($base-border-radius);
+      border-top: $media-type-border;
+
+      @include media($large-screen) {
+        border-bottom-left-radius: $base-border-radius;
+        border-left: $media-type-border;
+        border-top-left-radius: $base-border-radius;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &:last-child .media-type-item {
+      @include border-bottom-radius($base-border-radius);
+      border-bottom: $media-type-border;
+
+      @include media($large-screen) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: $base-border-radius;
+        border-right: $media-type-border;
+        border-top-right-radius: $base-border-radius;
+      }
+    }
+
+    input:checked + .media-type-item {
+      background: $media-type-background-checked;
+      border: none;
+      color: $media-type-color-checked;
+    }
+  }
+}
+
+// Index Styles
+label {
+  @include display(inline-flex);
+}
+// Search Styles
+ul {
+  @include outer-container;
+  li {
+    position: relative;
+    @include span-columns(4);
+    @include omega(3n);
+    @include media(max-width 768px) {
+      @include span-columns(12);
+    }
+    p {
+      @include display(flex);
+      @include justify-content(center);
+    }
+  }
+}
+.hover {
+  @include background-image(linear-gradient($halfdarkblue 60%, transparent 100%));
+  position: absolute;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  display: none;
+  @include outer-container;
+}
+.hover-links form {
+  margin: 30px 0;
+  padding: 0 15px;
+  @include display(flex);
+  @include justify-content(center);
+}
+.hover-links form input {
+  width: 100%;
+  height: 4em;
+}

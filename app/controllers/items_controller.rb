@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
   end
 
   # GET /items/1
@@ -58,6 +57,26 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    Tmdb::Api.key(ENV['TMDB_KEY'])
+    search = params[:search]
+    @search_term = search
+    @type = params[:media_type]
+    if search != ''
+      if @type == 'movie'
+        @results = Tmdb::Movie.find(search)
+      elsif @type == 'tv'
+        @results = Tmdb::TV.find(search)
+      else
+        flash[:alert] = 'You must choose a media type.'
+        redirect_to root_path
+      end
+    else
+      flash[:alert] = 'You must enter a search term.'
+      redirect_to root_path
     end
   end
 

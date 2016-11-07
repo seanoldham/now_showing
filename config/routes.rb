@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :items
-  root 'home#index'
+  root 'items#index'
 
-  post '/search', to: 'home#search'
+  post '/search', to: 'items#search'
   get '/search', to: redirect('/')
   post '/trello_add', to: 'home#trello_add'
   get '/trello_add', to: redirect('/')
