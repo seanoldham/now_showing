@@ -30,15 +30,19 @@ form {
   @include fill-parent;
 }
 .search-input {
+  margin-top: 30px;
   #search {
     font-size: 4rem;
     background-color: $navy;
     border: none;
     color: $gold;
     text-align: center;
-    padding: 0;
+    padding: 0.11em;
   }
   #search:focus {
     outline: none;
   }
+}
+a:hover {
+  color: $gold;
 }
