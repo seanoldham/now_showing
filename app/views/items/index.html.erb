@@ -4,29 +4,20 @@
         <%= search_field_tag 'search', nil, autofocus: true %>
       </section>
       <section>
-        <div class="media-types">
-          <label>
-            <%= radio_button_tag 'media_type', 'movie', checked: true %>
-            <span class="media-type-item">Movie</span>
-          </label>
-          <label>
-            <%= radio_button_tag 'media_type', 'tv' %>
-            <span class="media-type-item">TV</span>
-          </label>
-        </div>
-      </section>
-      <section>
         <%= submit_tag 'Search' %>
       </section>
   <% end %>
 </section>
 <script>
   $(document).ready(function(){
-    $(".img-result").mouseover(function() {
-      $(this).children(".hover").show();
-    });
-    $(".img-result").mouseout(function() {
-      $(this).children(".hover").hide();
-    });
+    $(".img-result").mouseover(
+                      function() {
+                        $(this).children(".hover").show();
+                      })
+                    .mouseout(
+                      function() {
+                        $(this).children(".hover").hide();
+                      }
+                    );
   });
 </script>
