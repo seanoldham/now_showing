@@ -11,7 +11,7 @@
 </head>
 <body>
   <header>
-    <a href="/"><h1 id="title" class="title h1">NOW SHOWING</h1></a>
+    <%= link_to "NOW SHOWING", root_path, class: "title h1", id: "title"  %>
   </header>
   <% flash.each do |name, msg| %>
     <section><%= content_tag :section, msg %></section>
