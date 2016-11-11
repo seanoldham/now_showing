@@ -1,25 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-
-  # GET /items
-  # GET /items.json
-  def index
-    @items = Item.all
-  end
-
-  # GET /items/1
-  # GET /items/1.json
-  def show
-  end
-
-  # GET /items/new
-  def new
-    @item = Item.new
-  end
-
-  # GET /items/1/edit
-  def edit
-  end
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   # POST /items
   # POST /items.json
@@ -28,7 +8,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to items_path, notice:  "#{@item.name} was successfully added." }
+        format.html { redirect_back fallback_location: root_path, notice:  "#{@item.name} was successfully added." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { redirect_to root_path }
@@ -42,10 +22,10 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to items_path, notice: "#{@item.name} was successfully updated." }
+        format.html { redirect_back fallback_location: root_path, notice: "#{@item.name} was successfully updated." }
         format.json { render :show, status: :ok, location: @item }
       else
-        format.html { render :edit }
+        format.html { redirect_to root_path }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +36,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_back fallback_location: root_path, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +51,14 @@ class ItemsController < ApplicationController
       flash[:alert] = 'You must enter a search term.'
       redirect_to root_path
     end
+  end
+
+  def watched
+    @items = Item.watched
+  end
+
+  def to_watch
+    @items = Item.to_watch
   end
 
   private
