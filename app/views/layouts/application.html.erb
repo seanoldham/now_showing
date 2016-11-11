@@ -13,9 +13,14 @@
     <header>
       <%= link_to "NOW SHOWING", root_path, class: "title h1", id: "title"  %>
     </header>
+    <nav>
+      <%= link_to "Watched", watched_path %>
+      <%= link_to "To Watch", to_watch_path %>
+    </nav>
     <% flash.each do |name, msg| %>
       <section><%= content_tag :section, msg %></section>
     <% end %>
+    <br>
     <%= yield %>
   </body>
 </html>

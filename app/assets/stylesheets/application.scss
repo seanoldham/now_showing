@@ -1,7 +1,6 @@
 @import "bourbon";
 @import "neat";
 @import "base/base";
-@import "home";
 @import "items";
 @import url("https://fonts.googleapis.com/css?family=Signika:700|Raleway");
 
@@ -10,7 +9,7 @@ body {
   color: $sand;
   background-color: $darkblue;
 }
-header, section, footer {
+header, section, footer, nav {
   @include outer-container();
   @include display(flex);
   @include justify-content(center);
