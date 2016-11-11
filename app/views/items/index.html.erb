@@ -1,23 +1,58 @@
 <section>
+  <ul>
+    <% @items.each do |item| %>
+      <li>
+        <div class="img-result">
+          <%= image_tag "http://image.tmdb.org/t/p/original#{item.image_url}" %><br>
+          <div class="hover">
+            <div class="hover-links">
+              <%= button_to 'Watch Later',
+                            item_path(item),
+                            disabled: item.status == 0,
+                            method: :patch,
+                            params: {
+                              item: {
+                                status: 0
+                              }
+                            }
+              %>
+              <%= button_to 'Watched',
+                            item_path(item),
+                            disabled: item.status == 1,
+                            method: :patch,
+                            params: {
+                              item: {
+                                status: 1
+                              }
+                            }
+              %>
+            </div>
+          </div>
+        </div>
+        <p><%= item.name %></p>
+      </li>
+    <% end %>
+  </ul>
+</section>
+<br>
+<section>
   <%= form_tag('/search') do %>
-      <section class="search-input">
-        <%= search_field_tag 'search', nil, autofocus: true %>
-      </section>
-      <section>
-        <%= submit_tag 'Search' %>
-      </section>
+    <section class="search-input">
+      <%= search_field_tag 'search', nil %>
+    </section>
+    <section>
+      <%= submit_tag 'Search' %>
+    </section>
   <% end %>
 </section>
+
 <script>
   $(document).ready(function(){
-    $(".img-result").mouseover(
-                      function() {
-                        $(this).children(".hover").show();
-                      })
-                    .mouseout(
-                      function() {
-                        $(this).children(".hover").hide();
-                      }
-                    );
+    $(".img-result").mouseover(function() {
+      $(this).children(".hover").show();
+    });
+    $(".img-result").mouseout(function() {
+      $(this).children(".hover").hide();
+    });
   });
 </script>
