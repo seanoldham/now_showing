@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   post '/search', to: 'items#search'
   get '/search', to: redirect('/')
+  get 'watched', to: 'items#watched'
+  get 'to-watch', to: 'items#to_watch'
 end
