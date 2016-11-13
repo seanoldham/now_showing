@@ -20,7 +20,6 @@
     <% flash.each do |name, msg| %>
       <section><%= content_tag :section, msg %></section>
     <% end %>
-    <br>
     <%= yield %>
   </body>
 </html>

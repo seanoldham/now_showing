@@ -10,12 +10,23 @@
             <%= image_tag "http://image.tmdb.org/t/p/original#{result.poster_path}" %><br>
             <div class="hover">
               <div class="hover-links">
+                <%= button_to 'Watching',
+                  items_path,
+                  params: {
+                    item: {
+                      name: result.title,
+                      image_url: result.poster_path,
+                      uniqueid: result.id,
+                      status: 2
+                    }
+                  }
+                %>
                 <%= button_to 'Watch Later',
                   items_path,
                   params: {
                     item: {
                       name: result.title,
-                      image_url: result.poster_path ,
+                      image_url: result.poster_path,
                       uniqueid: result.id,
                       status: 0
                     }
@@ -41,14 +52,26 @@
     <% end %>
   </ul>
 </section>
-
+<section>
+  <%= form_tag('/search') do %>
+      <section class="search-input">
+        <%= search_field_tag 'search', nil, autofocus: true %>
+      </section>
+      <section>
+        <%= submit_tag 'Search' %>
+      </section>
+  <% end %>
+</section>
 <script>
   $(document).ready(function(){
-    $(".img-result").mouseover(function() {
-      $(this).children(".hover").show();
-    });
-    $(".img-result").mouseout(function() {
-      $(this).children(".hover").hide();
-    });
+    $(".img-result").mouseover(
+        function() {
+          $(this).children(".hover").show();
+        })
+        .mouseout(
+            function() {
+              $(this).children(".hover").hide();
+            }
+        );
   });
 </script>

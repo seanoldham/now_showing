@@ -8,6 +8,22 @@
       </section>
   <% end %>
 </section>
+<% if @watching.count > 0 %>
+<br>
+<h2>Watching Now:</h2>
+<section>
+  <ul>
+    <% @watching.each do |result| %>
+      <li>
+        <div class="img-result">
+          <%= image_tag "http://image.tmdb.org/t/p/original#{result.image_url}" %>
+        </div>
+        <p><%= result.name %></p>
+      </li>
+    <% end %>
+  </ul>
+</section>
+<% end %>
 <script>
   $(document).ready(function(){
     $(".img-result").mouseover(

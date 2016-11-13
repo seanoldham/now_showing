@@ -6,25 +6,35 @@
           <%= image_tag "http://image.tmdb.org/t/p/original#{item.image_url}" %><br>
           <div class="hover">
             <div class="hover-links">
+              <%= button_to 'Watching',
+                item_path(item),
+                disabled: item.status == 2,
+                method: :patch,
+                params: {
+                  item: {
+                    status: 2
+                  }
+                }
+              %>
               <%= button_to 'Watch Later',
-                            item_path(item),
-                            disabled: item.status == 0,
-                            method: :patch,
-                            params: {
-                              item: {
-                                status: 0
-                              }
-                            }
+                item_path(item),
+                disabled: item.status == 0,
+                method: :patch,
+                params: {
+                  item: {
+                    status: 0
+                  }
+                }
               %>
               <%= button_to 'Watched',
-                            item_path(item),
-                            disabled: item.status == 1,
-                            method: :patch,
-                            params: {
-                              item: {
-                                status: 1
-                              }
-                            }
+                item_path(item),
+                disabled: item.status == 1,
+                method: :patch,
+                params: {
+                  item: {
+                    status: 1
+                  }
+                }
               %>
             </div>
           </div>

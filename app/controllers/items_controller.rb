@@ -5,10 +5,10 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
-
+    finish_watching(@item)
     respond_to do |format|
       if @item.save
-        format.html { redirect_back fallback_location: root_path, notice:  "#{@item.name} was successfully added." }
+        format.html { redirect_to root_path, notice:  "#{@item.name} was successfully added." }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { redirect_to root_path }
@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
+        finish_watching(@item)
         format.html { redirect_back fallback_location: root_path, notice: "#{@item.name} was successfully updated." }
         format.json { render :show, status: :ok, location: @item }
       else
@@ -53,6 +54,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def landing
+    @watching = Item.watching
+  end
+
   def watched
     @items = Item.watched
   end
@@ -70,5 +75,11 @@ class ItemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.require(:item).permit(:name, :image_url, :uniqueid, :status)
+    end
+
+    def finish_watching(item)
+      if item.status == 2
+        FinishWatchingJob.set(wait: 3.hours).perform_later(item.id)
+      end
     end
 end

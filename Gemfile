@@ -18,6 +18,7 @@ gem 'figaro'
 gem 'themoviedb'
 gem 'rollbar'
 gem 'oj', '~> 2.12.14'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug'
