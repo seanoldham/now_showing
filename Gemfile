@@ -16,7 +16,8 @@ gem 'bourbon'
 gem 'neat'
 gem 'figaro'
 gem 'themoviedb'
-gem 'ruby-trello'
+gem 'rollbar'
+gem 'oj', '~> 2.12.14'
 
 group :development, :test do
   gem 'byebug'

@@ -1,1 +1,1 @@
-Figaro.require_keys("TMDB_KEY", "TRELLO_KEY", "TRELLO_SECRET", "TRELLO_MEMBER")
+Figaro.require_keys("TMDB_KEY")
