@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
 
     def finish_watching(item)
       if item.status == 2
-        FinishWatchingJob.set(wait: 3.minutes).perform_later(item.id)
+        FinishWatchingJob.set(wait: 3.hours).perform_later(item.id)
       end
     end
 end
