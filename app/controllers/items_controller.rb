@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.update(item_params)
         finish_watching(@item)
-        format.html { redirect_back fallback_location: root_path, notice: "#{@item.name} was successfully updated." }
+        format.html { redirect_to root_path, notice: "#{@item.name} was successfully updated." }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { redirect_to root_path }
@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
 
     def finish_watching(item)
       if item.status == 2
-        FinishWatchingJob.set(wait: 3.hours).perform_later(item.id)
+        FinishWatchingJob.set(wait: 3.minutes).perform_later(item.id)
       end
     end
 end
