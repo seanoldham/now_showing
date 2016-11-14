@@ -19,6 +19,7 @@ gem 'themoviedb'
 gem 'rollbar'
 gem 'oj', '~> 2.12.14'
 gem 'sidekiq'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'byebug'
